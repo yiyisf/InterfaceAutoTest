@@ -13,8 +13,8 @@ public class GetTop {
 	private static  double Cpu = 0;
 
 	public static void main( String[] args ) throws IOException{
-		for ( int i = 0; i < 10; i++ ){
-			System.out.println( " Cpu：" + topCpu( "com.ss.android.ugc.aweme" ) );
+		for ( int i = 0; i < 2; i++ ){
+			System.out.println( " Cpu：" + topCpu( "com.haibao.store" ) );
 		}
 	}
 
@@ -30,14 +30,15 @@ public class GetTop {
 		        BufferedReader in = new BufferedReader(new InputStreamReader( proc.getInputStream()));
 		        String line = null;
 		        while ((line = in.readLine()) != null) {
-					if(line.contains("%")&&line.contains(packageName)&&line.contains("/")==false){
+//					System.out.println(line);
+
+					if(line.contains("%")==false &&line.contains(packageName)&&line.contains("/")==false){
 						List<String> strList = Arrays.asList(line.split("\\s+"));
-						if(strList.get(5).trim().contains("%")){
-							cpuStr = strList.get(5).trim().replace("%", "");
-						}
-						if(strList.get(4).trim().contains("%")) {
-							cpuStr = strList.get(4).trim().replace("%", "");
-						}
+						cpuStr = strList.get(9);
+						System.out.println(cpuStr);
+//						if(strList.get(9).trim().contains("%")){
+//							cpuStr = strList.get(9).trim().replace("%", "");
+//						}
 						break;
 		        	}
 		        }

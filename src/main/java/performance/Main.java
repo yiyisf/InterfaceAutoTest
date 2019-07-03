@@ -13,8 +13,8 @@ import static GetResource.Getbattery.battery;
  * Created by liyu on 2018/10/25.
  */
 public class Main {
-    public static String devices = "4f497ba2";
-    public static String packageName = "com.ss.android.ugc.aweme";
+    public static String devices = "CLB0218822002526";
+    public static String packageName = "com.haibao.store";
     public static ArrayList<Double> cpuList = new ArrayList<>();
     public static ArrayList<Double> memList = new ArrayList<>();
     public static ArrayList<Double> batteryList = new ArrayList<>();
@@ -23,7 +23,7 @@ public class Main {
     public static ArrayList<Double> lostFrameList = new ArrayList<>();
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 2; i++) {
             Double cpu = topCpu(packageName);
             Double mem = talHeapSize(packageName);
             Double flow = (double)(getWifiFlow(packageName));

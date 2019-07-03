@@ -10,8 +10,8 @@ import performance.Main;
 
 public class GetFlow {
     public static void main(String[] args) throws IOException, InterruptedException {
-        for (int i = 0; i < 10; i++) {
-            System.out.println(getWifiFlow("com.ss.android.ugc.aweme"));
+        for (int i = 0; i < 2; i++) {
+            System.out.println(getWifiFlow("com.haibao.store"));
             Thread.sleep(3000);
         }
     }
@@ -39,11 +39,12 @@ public class GetFlow {
                 StringBuffer stringBuffer = new StringBuffer();
                 while ((line = in.readLine()) != null) {
                     stringBuffer.append(line + " ");
+                    System.out.println(line);
                     String str1 = line.toString();
                     if (str1.contains("wlan0:")) {
                         List<String> list = Arrays.asList(str1.split("\\s+"));
-                        String rcv = list.get(2).trim();
-                        String send = list.get(10).trim();
+                        String rcv = list.get(1).trim();
+                        String send = list.get(9).trim();
                         long a = Long.parseLong(rcv);
                         long b = Long.parseLong(send);
                         System.out.println("【流量数据统计】：上行：" + ((a / 1024) / 1024) + "MB" + "上行：" + ((b / 1024) / 1024) + "MB");

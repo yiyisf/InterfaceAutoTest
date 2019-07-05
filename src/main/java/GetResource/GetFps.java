@@ -21,7 +21,7 @@ public class GetFps {
     public static ArrayList<Double> frameRateList;
 
     public static void main(String[] args) throws InterruptedException, ArrayIndexOutOfBoundsException {
-        String result = "com.ss.android.ugc.aweme";
+        String result = "com.haibao.store";
         System.out.println(fps(result));
         System.out.println(fps.toString());
 
@@ -68,12 +68,12 @@ public class GetFps {
                                 + Float.parseFloat(timeArray[2]) + Float.parseFloat(timeArray[3]);
                             frames2 += 1;
                             countTime = countTime + oncetime;
-                            if (oncetime > 19.67) {
+                            if (oncetime > 16.67) {
                                 jankCount += 1;
-                                if (oncetime % 19.67 == 0) {
-                                    vsync_overtime += oncetime / 19.67 - 1;
+                                if (oncetime % 16.67 == 0) {
+                                    vsync_overtime += oncetime / 16.67 - 1;
                                 } else {
-                                    vsync_overtime += oncetime / 19.67;
+                                    vsync_overtime += oncetime / 16.67;
                                 }
                             }
                         }

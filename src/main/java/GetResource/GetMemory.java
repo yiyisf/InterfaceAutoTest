@@ -12,8 +12,8 @@ import performance.Main;
 public class GetMemory {
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        for (int i = 0; i < 100; i++) {
-            System.out.println(talHeapSize("com.ss.android.ugc.aweme"));
+        for (int i = 0; i < 2; i++) {
+            System.out.println(talHeapSize("com.haibao.store"));
         }
     }
 
@@ -39,12 +39,15 @@ public class GetMemory {
                 while ((line = in.readLine()) != null) {
                     if (line.contains(PackageName) && line.contains("/") == false) {
                         List<String> strList = Arrays.asList(line.split("\\s+"));
-                        heapStr = strList.get(9).trim();
+                        heapStr = strList.get(10).trim();
+//                        System.out.println(strList.get(10).trim());
+//                        System.out.println(strList.get(9).trim());
+//                        System.out.println(strList.get(8).trim());
                         if (heapStr.contains("K")) {
-                            heapStr = strList.get(9).trim().replace("K", "");
+                            heapStr = strList.get(10).trim().replace("K", "");
                             break;
                         } else {
-                            heapStr = strList.get(8).trim().replace("K", "");
+                            heapStr = strList.get(9).trim().replace("K", "");
                             break;
                         }
                     }

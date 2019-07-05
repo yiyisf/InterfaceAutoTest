@@ -26,9 +26,11 @@ public class GetFlow {
         String Pid = PID(PackageName);
         long str3 = 0;
         String cmd = "adb -s " + Main.devices + " shell cat /proc/" + Pid + "/net/dev";
+        System.out.println(cmd);
         try {
             Runtime runtime = Runtime.getRuntime();
             Process proc = runtime.exec(cmd);
+            System.out.println(proc);
             try {
                 if (proc.waitFor() != 0) {
                     System.err.println("exit value = " + proc.exitValue());
@@ -41,6 +43,7 @@ public class GetFlow {
                     stringBuffer.append(line + " ");
                     System.out.println(line);
                     String str1 = line.toString();
+                    System.out.println(line.toString());
                     if (str1.contains("wlan0:")) {
                         List<String> list = Arrays.asList(str1.split("\\s+"));
                         String rcv = list.get(1).trim();
@@ -82,12 +85,18 @@ public class GetFlow {
             String line = null;
             while ((line = in.readLine()) != null) {
                 stringBuffer.append(line + " ");
+                System.out.println(line);
             }
+
             String str1 = stringBuffer.toString();
             if (str1.contains(PackageName)) {
-                String str2 = str1.substring(8, 15);
+                String str2 = str1.substring(8,20);
+//                System.out.println(str1);
+//                System.out.println(str2);
                 PID = str2;
                 PID = PID.trim();
+
+                System.out.println(PID);
             } else {
                 PID = null;
             }

@@ -9,8 +9,8 @@ import performance.Main;
 public class Getbattery {
 	public static void main( String[] args ) throws IOException, InterruptedException
 	{
-		for(int i=0;i<100;i++){
-		System.out.print( battery() );
+		for(int i=0;i<2;i++){
+		System.out.print( battery() + "\n" );
 		Thread.sleep(3000);
 		}
 	}
